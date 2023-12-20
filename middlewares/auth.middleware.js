@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+// require("dotenv").config();
 
 const authJWT = (req,res,next) => {
   const token = req.header('Authorization');
@@ -8,7 +8,7 @@ const authJWT = (req,res,next) => {
     return res.status(401).json({ message: 'Unauthorized: Missing token' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(token, "Haroon007", (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Forbidden: Invalid token' });
     }

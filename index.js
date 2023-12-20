@@ -27,7 +27,7 @@ const users = [
       return res.status(401).json({ message: 'Invalid credentials' });
     }
   
-    const token = jwt.sign({ userId: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user.id, username: user.username }, "Haroon007", { expiresIn: '1h' });
   
     res.json({ token });
   });
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
   res.status(201).send("Hello World");
 });
 
-app.listen(process.env.PORT, async () => {
+app.listen(5000, async () => {
   try {
     await connection;
     console.log("Database is connected");
@@ -53,5 +53,5 @@ app.listen(process.env.PORT, async () => {
     console.log(error);
     console.log("Database is not connected");
   }
-  console.log(`Server is running at port ${process.env.PORT}`);
+  console.log(`Server is running at port 5000`);
 });
